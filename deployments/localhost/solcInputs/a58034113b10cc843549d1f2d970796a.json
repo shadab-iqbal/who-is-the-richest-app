@@ -1,0 +1,35 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/WhoIsTheRichest.sol": {
+      "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.4;\r\n\r\nerror UserNotFound();\r\n\r\ncontract WhoIsTheRichest {\r\n    struct User {\r\n        address userAddress;\r\n        string name;\r\n        string email;\r\n    }\r\n    User[] public users;\r\n\r\n    event UserRegister(address indexed userAddress);\r\n    event UserUpdate(address indexed userAddress);\r\n\r\n    function registerUser(address _userAddress, string memory _name, string memory _email) external {\r\n        users.push(User(_userAddress, _name, _email));\r\n        emit UserRegister(_userAddress);\r\n    }\r\n\r\n    function updateUser(address _userAddress, string memory _name, string memory _email) external {\r\n        bool updated = false;\r\n        // reading everytime from chain is expensive\r\n        User[] memory memory_users = users;\r\n        for (uint256 i = 0; i < memory_users.length; i++) {\r\n            if (memory_users[i].userAddress == _userAddress) {\r\n                users[i].name = _name;\r\n                users[i].email = _email;\r\n                updated = true;\r\n                emit UserUpdate(_userAddress);\r\n                break;\r\n            }\r\n        }\r\n        // more gas-efficient than \"require\"\r\n        if (!updated) revert UserNotFound();\r\n    }\r\n\r\n    function getAllUsers() external view returns (User[] memory) {\r\n        return (users);\r\n    }\r\n\r\n    function getUsersCount() external view returns (uint256 count) {\r\n        return users.length;\r\n    }\r\n}\r\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}
