@@ -1,34 +1,55 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Who Is The Richest
 
-## Getting Started
+This is a web3 project where users can register and update their profile. The landing page shows a list of all registered users, including their wallet address, name, and wallet balance. It also displays how many users are there and who the top 3 richest registered users are, in terms of ETH balance.
 
-First, run the development server:
+The project is built using Hardhat and Next.js. It works in Hardhat localhost node, Goerli testnet, and Sepolia testnet. For using in other networks, you can modify the `hardhat.config.js` file. 
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Installation
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To run the project, first clone the repo and navigate to the project directory. Then, use the npm package manager to install the required dependencies:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+`npm install --force`
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+This command will install the dependencies required for the project to run.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Connecting to the network
 
-## Learn More
+To run the project, you need to connect to the appropriate network (localhost, Goerli, or Sepolia).
 
-To learn more about Next.js, take a look at the following resources:
+### Localhost
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+If you are using Hardhat localhost, please make sure you are running it first using:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+`npx hardhat node`
 
-## Deploy on Vercel
+Then, deploy the contracts to localhost using:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+`npx hardhat deploy --network localhost`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Goerli testnet
+To connect to the Goerli testnet, make sure you have Metamask installed and set up. Then, select the Goerli testnet in your Metamask network dropdown. Smarts contracts are already deployed in this network.
+
+### Sepolia testnet
+To connect to the Sepolia testnet, make sure you have Metamask installed and set up. Then, select the Sepolia testnet in your Metamask network dropdown. Smarts contracts are already deployed in this network.
+
+## Running the project
+After installation and network setup, you can run the project using the following command:
+
+`npm run dev`
+
+This command will start the development server and you will be able to interact with the webapp.
+
+## Interacting with the contract
+You can also interact with the contract from the backend. If you want to register some users, run:
+
+`npm run register`
+
+If you want to send ETH from one wallet to another, run:
+
+`npm run sendEth`
+
+You can also test the smart contract using:
+
+`npx hardhat test`
+
+There is a 100% test coverage.
