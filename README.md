@@ -53,3 +53,11 @@ You can also test the smart contract using:
 `npx hardhat test`
 
 There is a 100% test coverage.
+
+## Attached screenshots of the app
+
+<img width="1440" alt="image" src="https://github.com/shadab-iqbal/who-is-the-richest-app/assets/68025292/1c0a46a0-2d5d-4154-8195-1a2d0201597b">
+
+<img width="1245" alt="image" src="https://github.com/shadab-iqbal/who-is-the-richest-app/assets/68025292/ef405106-2fa9-4d71-b163-046d70f1be1d">
+
+<img width="1304" alt="image" src="https://github.com/shadab-iqbal/who-is-the-richest-app/assets/68025292/039c3564-2434-42ed-ac61-71880662b2f3">
