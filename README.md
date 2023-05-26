@@ -32,6 +32,15 @@ To connect to the Goerli testnet, make sure you have Metamask installed and set 
 ### Sepolia testnet
 To connect to the Sepolia testnet, make sure you have Metamask installed and set up. Then, select the Sepolia testnet in your Metamask network dropdown. Smarts contracts are already deployed in this network.
 
+### Configuration
+Please create a `.env` file and include the following three fields:
+
+```
+GOERLI_RPC_URL=[Your Goerli URL]
+SEPOLIA_RPC_URL=[Your Sepolia URL]
+PRIVATE_KEY=[Your Private Key]
+```
+
 ## Running the project
 After installation and network setup, you can run the project using the following command:
 
